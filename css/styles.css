@@ -307,6 +307,25 @@ img {
   padding-bottom: 94px;
 }
 
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.label {
+  position: absolute;
+  top: 224px;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 27px 90px;
+  background-color: rgba(47, 48, 58, 0.8);
+  color: #fff;
+}
+
 .team {
   display: flex;
   justify-content: center;
