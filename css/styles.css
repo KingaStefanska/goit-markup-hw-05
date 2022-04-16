@@ -82,6 +82,26 @@ img {
   color: var(--leading-color);
 }
 
+.agency-active::after {
+  content: "";
+  display: block;
+  background-color: var(--action-color);
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  margin-top: 28px;
+}
+
+.portfolio-active::after {
+  content: "";
+  display: block;
+  background-color: var(--action-color);
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  margin-top: 28px;
+}
+
 .agency,
 .portfolio,
 .contact {
@@ -160,8 +180,12 @@ img {
 .mail,
 .phone {
   padding-top: 32px;
-  padding-bottom: 32px;
   align-items: center;
+}
+
+.mail,
+.phone {
+  padding-bottom: 32px;
 }
 
 .header-title {
@@ -652,4 +676,28 @@ img {
   position: absolute;
   top: 8px;
   right: 8px;
+}
+
+.body {
+  background: var(--background-menu);
+}
+
+.body {
+  animation-name: changeBg;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+}
+
+.button-service:active {
+  animation-name: changeBg;
+}
+
+@keyframes changeBg {
+  0% {
+    background: var(--background-menu);
+  }
+
+  100% {
+    background: rgba(0, 0, 0, 0.2);
+  }
 }
