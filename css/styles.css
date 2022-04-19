@@ -1,7 +1,6 @@
 .body {
   font-family: var(--main-font), var(--second-font);
   background: var(--background-menu);
-  box-sizing: border-box;
   max-width: 1600px;
   margin: 0 auto;
 }
@@ -64,6 +63,13 @@ img {
   justify-content: center;
   background: var(--background-menu);
   align-items: center;
+}
+
+.menu2 {
+  display: flex;
+  justify-content: center;
+  background: var(--background-menu);
+  align-items: center;
   border-bottom: 1px solid var(--header-line);
 }
 
@@ -90,6 +96,7 @@ img {
   width: 100%;
   border-radius: 2px;
   margin-top: 28px;
+  z-index: 2;
 }
 
 .portfolio-active::after {
@@ -118,6 +125,7 @@ img {
 .contact:hover,
 .contact:focus {
   color: var(--action-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail,
@@ -135,6 +143,7 @@ img {
 .phone:focus,
 .phone:hover {
   color: var(--action-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pages {
@@ -172,6 +181,7 @@ img {
 .icon-phone:hover,
 .icon-mail:focus {
   fill: var(--action-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .agency,
@@ -294,10 +304,10 @@ img {
 
 .picture {
   width: 370px;
-  padding: 0 15px;
+  padding: 0px;
 }
 
-.picture:not(last-child) {
+.picture:not(:last-child) {
   margin-right: 30px;
 }
 
@@ -309,7 +319,6 @@ img {
 
 .thumb {
   position: relative;
-  overflow: hidden;
 }
 
 .label {
@@ -318,7 +327,8 @@ img {
   bottom: 0;
   width: 100%;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
+  line-height: 1.172;
   text-transform: uppercase;
   text-align: center;
   padding: 27px 90px;
@@ -421,6 +431,7 @@ img {
 .social-list_link:focus {
   fill: var(--text-action-color);
   background-color: var(--action-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .title-clients {
@@ -455,6 +466,7 @@ img {
 .icon-client:focus {
   border-color: var(--action-color);
   fill: var(--action-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-client:not(:last-child) {
@@ -513,6 +525,7 @@ img {
   border-color: var(--action-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-links {
@@ -531,6 +544,39 @@ img {
 .portfolio-pictures:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.box {
+  position: relative;
+  overflow: hidden;
+}
+
+.box:hover .overlay {
+  transform: translateY(0%);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: transform 250ms ease;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text {
+  color: #fff;
+  padding: 49px 45px 49px 24px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  font-weight: 400;
 }
 
 .description-portfolio {
@@ -585,6 +631,7 @@ img {
 .phone2:hover,
 .phone2:focus {
   color: var(--action-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail2,
@@ -665,6 +712,7 @@ img {
 .social-list_link-footer:hover,
 .social-list_link-footer:focus {
   background-color: var(--action-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-hidden {
@@ -674,15 +722,26 @@ img {
 }
 
 .backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  background: var(--background-menu);
   width: 528px;
   height: 581px;
-  position: absolute;
-  left: 355px;
-  top: 221px;
-  background: #ffffff;
+  position: fixed;
+  left: 50%;
+  top: 50%;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transform: translate(-50%, -50%);
+  opacity: 1;
 }
 
 .close-btn {
@@ -695,28 +754,4 @@ img {
   position: absolute;
   top: 8px;
   right: 8px;
-}
-
-.body {
-  background: var(--background-menu);
-}
-
-.body {
-  animation-name: changeBg;
-  animation-timing-function: linear;
-  animation-play-state: paused;
-}
-
-.button-service:active {
-  animation-name: changeBg;
-}
-
-@keyframes changeBg {
-  0% {
-    background: var(--background-menu);
-  }
-
-  100% {
-    background: rgba(0, 0, 0, 0.2);
-  }
 }
